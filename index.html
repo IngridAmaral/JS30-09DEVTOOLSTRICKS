@@ -18,33 +18,57 @@
     }
 
     // Regular
-    console.log('Hi')
+    console.log('Hi');
 
     // Interpolated
-    console.log('Helo, my %s is Ingrid', 'name')
+    console.log('Helo, my %s is Ingrid', 'name');
     
     // Styled
-    console.log("%c huehuehue", "font-size: 20px")
-
+    console.log("%c huehuehue", "font-size: 20px");
 
     // warning!
+    console.warn('buhuu');
 
     // Error :|
+    console.error('oops');
 
     // Info
+    console.info('some info');
 
     // Testing
+    console.assert(1 === 2, 'that is wrong!'); /*if it's false will show the message*/
 
     // clearing
+    //console.clear();
 
     // Viewing DOM Elements
-
+   // console.log(p); /*shows the html element*/
+    //console.dir(p); /*open all the stuff that lives on this element*/
+    
     // Grouping together
+    dogs.forEach(dog => {
+        console.group(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} year old`);
+        console.log(`${dog.name} is ${dog.age *7} human years old`);
+        console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('Wes'); //1
+    console.count('Wes'); //2
+    console.count('Wes'); //3 
+    console.count('Wes'); //4
+
 
     // timing
-
+    console.time('fetching data');
+    fecth('https://api.github.com/users/ingridamaral')
+        .then(data => data.json())
+        .then(data => {
+            console.timeEnd('fetching data');
+            console.log(data);
+        });
   </script>
 </body>
 </html>
